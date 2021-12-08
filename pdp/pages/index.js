@@ -1,6 +1,5 @@
 import Head from "next/head";
-
-const Header = (await import("home/Header")).default;
+import Link from 'next/link'
 
 const Home = () => (
   <div className="container">
@@ -10,10 +9,30 @@ const Home = () => (
     </Head>
 
     <main>
-      <Header />
-      <h1 className="title">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+      <ul>
+        <li>
+          <Link href={`/dynamic-items/5`}>
+            <a>Dynamic Items Fallback: false 5</a>
+          </Link>
+        </li>
+        <li><Link href={`/dynamic-items/8`}>
+          <a>Dynamic Items Fallback: false 8</a>
+        </Link>
+        </li>
+        <li><Link href={`/dynamic-items-fallback-true/5`}>
+          <a>Dynamic Items Fallback: True 5</a>
+        </Link>
+        </li>
+        <li><Link href={`/dynamic-items-fallback-true/8`}>
+          <a>Dynamic Items Fallback: True 8</a>
+        </Link>
+        </li>
+        <li>
+          <Link href={`/dynamic-items-single-url-csr`}>
+            <a>Just Dogs</a>
+          </Link>
+        </li>
+      </ul>
     </main>
   </div>
 );
